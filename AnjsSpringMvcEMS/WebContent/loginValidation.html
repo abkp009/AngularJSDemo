@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" ng-app="formValidation">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<title>Example - example-example11-production</title>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+<script src="./js/appFormValidation.js"></script>
+<style>
+input.ng-invalid.ng-dirty{border:1px solid red}
+</style>
+</head>
+<body>
+    <h2>Login</h2>
+    <br/>
+	<form role="form" ng-submit="loginSubmit(name,password)"
+		class="form-inline" ng-controller="validationController" name="frm">
+
+		<div class="form-group">
+			<label for="email">Email:</label> <input type="email"
+				class="form-control" ng-model="name" required name="name"/>
+            <span ng-show="frm.name.$dirty && frm.name.$error.required">Required!</span>
+            <span ng-show="frm.name.$dirty && frm.name.$error.email">Not an Email</span>
+		</div>
+		<div class="form-group">
+			<label for="pwd">Password:</label> <input type="password"
+				class="form-control" ng-model="password" required ng-minlength="5" ng-maxlength="10" name="password"/>
+				 <span ng-show="frm.password.$dirty && frm.password.$error.required">Required!</span>
+            <span ng-show="frm.password.$dirty && frm.password.$error.minlength">Too short!</span>
+            <span ng-show="frm.password.$dirty && frm.password.$error.maxlength">Too long!</span>
+		</div>
+		<button type="submit" class="btn btn-default" ng-disabled="frm.$invalid" >Submit</button>
+	</form>
+</body>
+</html>

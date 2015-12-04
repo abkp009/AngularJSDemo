@@ -1,0 +1,23 @@
+User Details:
+<div class="container">
+	<div class="table-responsive">
+		<table class="table">
+			<tr>
+				<th>User Name</th>
+				<th>Password</th>
+				<th>Age</th>
+				<th>Salary</th>
+				<th>Address</th>
+			</tr>
+			<tr>
+				<td>{{user.name | uppercase }}</td>
+				<td>{{user.password}}</td>
+				<td>{{user.age | number }}</td>
+				<td>{{user.salary | number }}</td>
+				<td>{{user.address | lowercase }}</td>
+			</tr>
+		</table>
+
+		<a href="#/home">Home</a>
+	</div>
+</div>

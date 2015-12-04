@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" ng-app="docsSimpleDirective">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<title>Example - example-example11-production</title>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+<script src="./js/app2.js"></script>
+</head>
+<body ng-controller="ctrl">
+	<h2>Actor Data</h2>
+	<div ng-repeat="actor in actors">
+		<div my-actor actor="actor"></div>
+	</div>
+
+	<h2>Book Data</h2>
+	<div ng-repeat="book in books">
+		<div book-dir book="book"></div>
+		<!-- similar to : showBookDetails(book) -->
+	</div>
+</body>
+</html>

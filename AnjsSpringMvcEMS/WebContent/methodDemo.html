@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="Test">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="utf-8">
+<script src="./js/angular.min.js"></script>
+<script src="./js/angular-route.js"></script>
+<script src="./js/app3.js"></script>
+<style type="text/css">
+input {
+	padding: 10px;
+	display: block;
+}
+</style>
+<title>EMS</title>
+</head>
+<body>
+	<div ng-controller="Controller as ctrl">
+		{{ctrl.msg}}
+		<p ng-repeat="name in ctrl.strArr">{{$index + 1}} - {{name}} -
+			First:{{$first}}</p>
+		Count:{{ctrl.count}} <br />
+		<form ng-submit="ctrl.clickFn(ctrl.addName)">
+			<input ng-model="ctrl.addName" />
+			<button type="submit">Add</button>
+		</form>
+		Enter no To Square:<input ng-model="ctrl.sq">
+		<h3 ng-show="ctrl.sq">Square:{ctrl.square(ctrl.sq)}</h3>
+	</div>
+	<div ng-controller="NameController as nctrl">
+		<p ng-repeat="p in nctrl.names | orderBy: '-name'">
+			Obj As Json:{{p | json}}<br />Name:{{p.name}}<br /> Age:{{p.age}}<br />
+		</p>
+		Count:{{nctrl.count}}
+		<form ng-submit="nctrl.clickFnName(nctrl.addName,nctrl.addAge)">
+			Name:<input ng-model="nctrl.addName" /> Age:<input
+				ng-model="nctrl.addAge" />
+			<button type="submit">Add Person</button>
+		</form>
+	</div>
+</body>
+</html>
